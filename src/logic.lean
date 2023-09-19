@@ -227,7 +227,12 @@ end
 theorem demorgan_conj_converse :
   (¬Q ∨ ¬P) → ¬(P∧Q)  :=
 begin
-  sorry,
+  intro hnqnp,
+  intro hpq,
+  cases hnqnp with nq np,
+  exact nq hpq.right,
+
+  exact np hpq.left,
 end
 
 theorem demorgan_conj_law :
