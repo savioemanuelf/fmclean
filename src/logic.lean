@@ -244,7 +244,10 @@ end
 theorem demorgan_disj_law :
   ¬(P∨Q) ↔ (¬P ∧ ¬Q)  :=
 begin
-  sorry,
+  split, 
+  exact demorgan_disj P Q,
+
+  exact demorgan_disj_converse P Q,
 end
 
 ------------------------------------------------
