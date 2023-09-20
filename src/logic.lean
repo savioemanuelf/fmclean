@@ -250,7 +250,10 @@ end
 theorem demorgan_conj_law :
   ¬(P∧Q) ↔ (¬Q ∨ ¬P)  :=
 begin
-  sorry,
+  split,
+  exact demorgan_conj P Q,
+  
+  exact demorgan_conj_converse P Q,
 end
 
 theorem demorgan_disj_law :
