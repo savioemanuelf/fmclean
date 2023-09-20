@@ -417,7 +417,8 @@ end
 theorem weaken_conj_left :
   (P∧Q) → Q  :=
 begin
-  sorry,
+  intro pq,
+  exact pq.right,
 end
 
 theorem conj_idempot :
