@@ -438,7 +438,7 @@ end
 theorem disj_idempot :
   (P∨P) ↔ P  :=
 begin
-    split,
+  split,
   intro pp,
   cases pp with p p,
   exact p,
@@ -469,7 +469,12 @@ variables P Q : U -> Prop
 theorem demorgan_exists :
   ¬(∃x, P x) → (∀x, ¬P x)  :=
 begin
-  sorry,
+  intro h,
+  intro u,
+  intro pu,
+  apply h,
+  existsi u,
+  exact pu,
 end
 
 theorem demorgan_exists_converse :
