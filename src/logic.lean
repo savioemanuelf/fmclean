@@ -480,7 +480,11 @@ end
 theorem demorgan_exists_converse :
   (∀x, ¬P x) → ¬(∃x, P x)  :=
 begin
-  sorry,
+  intro h,
+  intro h',
+  cases h' with x px,
+  apply h x,
+  exact px,
 end
 
 theorem demorgan_forall :
