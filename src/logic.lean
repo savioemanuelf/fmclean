@@ -490,7 +490,14 @@ end
 theorem demorgan_forall :
   ¬(∀x, P x) → (∃x, ¬P x)  :=
 begin
-  sorry,
+  intro h,
+  by_contradiction h',
+  apply h,
+  intro x,
+  by_contradiction npx,
+  apply h',
+  existsi x,
+  exact npx,
 end
 
 theorem demorgan_forall_converse :
