@@ -546,7 +546,11 @@ end
 theorem forall_as_neg_exists :
   (∀x, P x) → ¬(∃x, ¬P x)  :=
 begin
-  sorry,
+  intro h,
+  intro h',
+  cases h' with x npx,
+  have px : P x := h x,
+  exact npx px,
 end
 
 theorem forall_as_neg_exists_converse :
