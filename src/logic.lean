@@ -503,7 +503,11 @@ end
 theorem demorgan_forall_converse :
   (∃x, ¬P x) → ¬(∀x, P x)  :=
 begin
-  sorry,
+  intro h,
+  intro h',
+  cases h with x npx,
+  have px : P x := h'(x),
+  exact npx px,
 end
 
 theorem demorgan_forall_law :
