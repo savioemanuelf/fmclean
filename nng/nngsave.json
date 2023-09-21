@@ -200,7 +200,7 @@
     {
       "lean": "lemma maze (P Q R S T U: Prop)\n(p : P)\n(h : P → Q)\n(i : Q → R)\n(j : Q → T)\n(k : S → T)\n(l : T → U)\n: U :=\n",
       "isSolved": true,
-      "editorText": "apply l,\r\napply j,\r\napply h,\r\nexact p,\r\n"
+      "editorText": "have q := h(p),\r\nhave t : T := j(q),\r\nexact l(t),\r\n"
     },
     {
       "lean": "example (P Q : Prop) : P → (Q → P) :=\n",
@@ -250,7 +250,7 @@
     {
       "lean": "lemma iff_trans (P Q R : Prop) : (P ↔ Q) → (Q ↔ R) → (P ↔ R) :=\n",
       "isSolved": true,
-      "editorText": "intros h_pq h_qr,\r\nsplit,\r\nintro p,\r\napply h_qr.1,\r\napply h_pq.1,\r\nexact p,\r\nintro r,\r\napply h_pq.2,\r\napply h_qr.2,\r\nexact r,"
+      "editorText": "intro h_pq,\r\nintro h_qr,\r\ncases h_pq with pq qp,\r\ncases h_qr with qr rq,\r\nsplit,\r\nintro p,\r\nexact qr(pq(p)),\r\nintro r,\r\nexact qp(rq(r)),\r\n"
     },
     {
       "lean": "example (P Q : Prop) : Q → (P ∨ Q) :=\n",
@@ -274,7 +274,8 @@
     },
     {
       "lean": "lemma contrapositive2 (P Q : Prop) : (¬ Q → ¬ P) → (P → Q) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "by_cases hp : P,\r\nby_cases hq : Q,\r\nintro nqnp,\r\nintro p,\r\nexact hq,\r\nintro nqnp,\r\nintro p,\r\nexfalso,\r\napply nqnp hq,\r\nexact p,\r\nintro nqnp,\r\nintro p,\r\nexfalso,\r\napply hp(p),\r\n"
     },
     {
       "lean": "theorem succ_inj' {a b : mynat} (hs : succ(a) = succ(b)) :  a = b := \n",
