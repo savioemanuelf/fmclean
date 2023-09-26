@@ -359,7 +359,8 @@
     },
     {
       "lean": "theorem mul_left_cancel (a b c : mynat) (ha : a ≠ 0) : a * b = a * c → b = c :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction c with d hd generalizing b,\r\nintro ab,\r\nrw mul_zero at ab,\r\ninduction b with b hb,\r\nrefl,\r\nrw mul_succ at ab,\r\nhave a0 := add_left_eq_zero(ab),\r\nexfalso,\r\napply ha,\r\nexact a0,\r\nintro habd,\r\ncases b,\r\nsymmetry at habd,\r\nrw mul_zero at habd,\r\nhave p := eq_zero_or_eq_zero_of_mul_eq_zero a (succ d),\r\nhave a0sd0 := p(habd),\r\ncases a0sd0 with a0 sd0,\r\nexfalso,\r\napply ha,\r\nexact a0,\r\nsymmetry,\r\nexact sd0,\r\nhave abad := hd(b),\r\nrw mul_succ at habd,\r\nrw mul_succ at habd,\r\nhave ab := add_right_cancel (a*b) (a) (a*d),\r\nrw succ_eq_succ_iff,\r\nexact abad(ab(habd)),\r\n"
     },
     {
       "lean": "lemma one_add_le_self (x : mynat) : x ≤ 1 + x :=\n",
