@@ -344,7 +344,8 @@
     },
     {
       "lean": "theorem mul_pos (a b : mynat) : a ≠ 0 → b ≠ 0 → a * b ≠ 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro ha,\r\nintro hb,\r\nintro hab,\r\ncases b with d,\r\nrw mul_zero at hab,\r\napply hb,\r\nexact hab,\r\nrw mul_succ at hab,\r\nhave ha0 := add_left_eq_zero (hab),\r\napply ha,\r\nexact ha0,\r\n"
     },
     {
       "lean": "theorem eq_zero_or_eq_zero_of_mul_eq_zero (a b : mynat) (h : a * b = 0) :\n  a = 0 ∨ b = 0 :=\n",
