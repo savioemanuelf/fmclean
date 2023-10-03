@@ -404,7 +404,8 @@
     },
     {
       "lean": "theorem le_total (a b : mynat) : a ≤ b ∨ b ≤ a :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction b with b hb,\r\nright,\r\napply zero_le,\r\ncases hb with ab ba,\r\nhave hac := le_succ a b ab,\r\nleft,\r\nexact hac,\r\ncases ba with c hc,\r\ncases c with d,\r\nleft,\r\napply le_succ,\r\nrw le_iff_exists_add,\r\nuse 0,\r\nrw add_zero,\r\nrw add_zero at hc,\r\nsymmetry,\r\nexact hc,\r\nright,\r\nrw hc,\r\nrw le_iff_exists_add,\r\nuse d,\r\nrepeat {rw succ_eq_add_one},\r\nrw add_comm d 1,\r\nrw add_assoc,\r\nrefl,\r\n"
     },
     {
       "lean": "lemma le_succ_self (a : mynat) : a ≤ succ a :=\n",
