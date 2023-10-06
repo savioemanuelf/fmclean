@@ -439,7 +439,8 @@
     },
     {
       "lean": "lemma lt_aux_two (a b : mynat) : succ a ≤ b → a ≤ b ∧ ¬ (b ≤ a) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro hsab,\r\nsplit,\r\ncases hsab with c hc,\r\nrw succ_eq_add_one at hc,\r\nrw le_iff_exists_add,\r\nuse 1+c,\r\nrw ← add_assoc,\r\nexact hc,\r\nintro ba,\r\nhave hbsa := le_succ b a (ba),\r\nhave h := le_antisymm (succ a) b,\r\nhave bsa := h(hsab),\r\nhave sab := bsa(hbsa),\r\nhave hp := not_succ_le_self a,\r\napply hp,\r\nrw sab,\r\nexact ba,\r\n"
     },
     {
       "lean": "lemma lt_iff_succ_le (a b : mynat) : a < b ↔ succ a ≤ b :=\n",
